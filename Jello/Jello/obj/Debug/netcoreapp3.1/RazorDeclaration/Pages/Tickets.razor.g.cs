@@ -75,6 +75,7 @@ using Jello.Shared;
 #line default
 #line hidden
 #nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/tickets")]
     public partial class Tickets : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

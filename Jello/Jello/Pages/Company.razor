@@ -1,5 +1,25 @@
-﻿<h3>Company</h3>
+﻿@page "/companies"
+@inject NavigationManager UriHelper
+
+
+<h3>Company</h3>
+
+<button @onclick=@NavigateToProgressReport>Progress Report</button>
+<button @onclick=@NavigateToFuturePredictions>Future Predictions</button>
 
 @code {
+
+    void NavigateToProgressReport()
+    {
+        UriHelper.NavigateTo("projectprogress");
+    }
+
+    void NavigateToFuturePredictions()
+    {
+        UriHelper.NavigateTo("projectprediction");
+    }
+
+
+
 
 }

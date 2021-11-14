@@ -107,3 +107,15 @@ C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\
 C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\Jello.dll
 C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\Jello.pdb
 C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\Jello.genruntimeconfig.cache
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Company.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Projects.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Tickets.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Users.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\Razor\Pages\Company.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\Razor\Pages\Projects.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\Razor\Pages\Tickets.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\Razor\Pages\Users.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ProjectPrediction.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ProjectProgress.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\Razor\Pages\ProjectPrediction.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\netcoreapp3.1\Razor\Pages\ProjectProgress.razor.g.cs

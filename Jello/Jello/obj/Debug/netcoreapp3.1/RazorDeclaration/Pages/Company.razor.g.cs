@@ -75,6 +75,7 @@ using Jello.Shared;
 #line default
 #line hidden
 #nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/companies")]
     public partial class Company : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -82,6 +83,28 @@ using Jello.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 10 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Company.razor"
+       
+
+    void NavigateToProgressReport()
+    {
+        UriHelper.NavigateTo("projectprogress");
+    }
+
+    void NavigateToFuturePredictions()
+    {
+        UriHelper.NavigateTo("projectprediction");
+    }
+
+
+
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager UriHelper { get; set; }
     }
 }
 #pragma warning restore 1591

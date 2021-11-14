@@ -83,7 +83,7 @@ using Jello.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Shared\NavMenu.razor"
+#line 38 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
