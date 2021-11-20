@@ -1,0 +1,49 @@
+﻿@page "/users"
+
+
+<h3>List of users</h3>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Read</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in App.Users)
+            {
+                <tr>
+                    <td>
+                        @(user.Value.FirstName) @(user.Value.LastName)
+                    </td>
+                    <td>
+                        <a href="/users/details/@user.Key">Details</a>
+                    </td>
+                    <td>
+                        <a href="/users/edit/@user.Key">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/users/delete/@user.Key">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+        
+    </table>
+</div>
+
+
+<p>
+    <a class="btn btn-primary" href="/users/create">Create</a>
+</p>
+
+@code {
+
+
+
+}

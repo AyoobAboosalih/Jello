@@ -1,0 +1,32 @@
+﻿@page "/companies/create"
+@inject NavigationManager Navigation;
+
+<h3>Create a new Company</h3>
+
+<EditForm Model="company" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <label class="control-label">Name</label>
+        <ValidationMessage For="@(() => company.Name)" />
+        <InputText @bind-Value="@company.Name"></InputText>
+    </div>
+
+    
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+
+
+</EditForm>
+
+@code {
+
+    private Company company = new Company();
+
+    private void HandleValidSubmit()
+    {
+        var companyGuid = Guid.NewGuid();
+        App.Companies.Add(companyGuid, company);
+        Navigation.NavigateTo("/companies");
+    }
+
+}

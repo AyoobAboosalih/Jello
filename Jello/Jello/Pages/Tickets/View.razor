@@ -1,0 +1,25 @@
+﻿@page "/tickets/details/{Id:guid}"
+@inject NavigationManager Navigation;
+
+<h3>View User</h3>
+
+<p>
+    @ticket.Name
+</p>
+
+@code {
+
+    [Parameter]
+    public Guid Id { get; set; }
+    private Ticket ticket;
+
+    protected override void OnInitialized()
+    {
+        if (App.Tickets.ContainsKey(Id))
+            ticket = App.Tickets[Id];
+        else
+            Console.WriteLine("Item does not exist");
+
+    }
+
+}

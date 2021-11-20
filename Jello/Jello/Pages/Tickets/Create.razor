@@ -1,0 +1,32 @@
+﻿@page "/tickets/create"
+@inject NavigationManager Navigation;
+
+<h3>Create a new Project</h3>
+
+<EditForm Model="ticket" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <label class="control-label">Name</label>
+        <ValidationMessage For="@(() => ticket.Name)" />
+        <InputText @bind-Value="@ticket.Name"></InputText>
+    </div>
+
+
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+
+
+</EditForm>
+
+@code {
+
+    private Ticket ticket = new Ticket();
+
+    private void HandleValidSubmit()
+    {
+        var ticketGuid = Guid.NewGuid();
+        App.Tickets.Add(ticketGuid, ticket);
+        Navigation.NavigateTo("/tickets");
+    }
+
+}

@@ -1,0 +1,49 @@
+﻿@page "/projects"
+
+
+<h3>List of projects</h3>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Read</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var project in App.Projects)
+            {
+                <tr>
+                    <td>
+                        @(project.Value.Name)
+                    </td>
+                    <td>
+                        <a href="/projects/details/@project.Key">Details</a>
+                    </td>
+                    <td>
+                        <a href="/projects/edit/@project.Key">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/projects/delete/@project.Key">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+        
+    </table>
+</div>
+
+
+<p>
+    <a class="btn btn-primary" href="/projects/create">Create</a>
+</p>
+
+@code {
+
+
+
+}
