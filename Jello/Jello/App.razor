@@ -1,5 +1,4 @@
-﻿
-<CascadingAuthenticationState>
+﻿<CascadingAuthenticationState>
     <Router AppAssembly="@typeof(Program).Assembly">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -11,3 +10,154 @@
         </NotFound>
     </Router>
 </CascadingAuthenticationState>
+
+@code{
+    public static Dictionary<Guid, Company> Companies = new Dictionary<Guid, Company>();
+    public static Dictionary<Guid, Project> Projects = new Dictionary<Guid, Project>();
+    public static Dictionary<Guid, User> Users = new Dictionary<Guid, User>();
+    public static Dictionary<Guid, Ticket> Tickets = new Dictionary<Guid, Ticket>();
+
+    protected override void OnInitialized()
+    {
+        var company1 = new Company()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Austasia"
+        };
+
+
+        var company2 = new Company()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Thingamagig"
+        };
+
+        var company3 = new Company()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Jello"
+        };
+
+        Companies.Add(company1.Id, company1);
+        Companies.Add(company2.Id, company2);
+        Companies.Add(company3.Id, company3);
+
+        // Adding Project
+
+        var Project1 = new Project()
+        {
+            Id = Guid.NewGuid(),
+            Name = "dancing project",
+            StartDate = DateTime.Today,
+            Enddate = DateTime.Now,
+            assignedCompany = company1.Id
+        };
+
+
+        var Project2 = new Project()
+        {
+            Id = Guid.NewGuid(),
+            Name = "running project",
+            StartDate = DateTime.Today,
+            Enddate = DateTime.Now,
+            assignedCompany = company2.Id
+        };
+
+        var Project3 = new Project()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Building project",
+            StartDate = DateTime.Today,
+            Enddate = DateTime.Now,
+            assignedCompany = company3.Id
+        };
+
+        Projects.Add(Project1.Id, Project1);
+        Projects.Add(Project2.Id, Project2);
+        Projects.Add(Project3.Id, Project3);
+
+
+        // Adding User
+
+        var user1 = new User()
+        {
+            Id = Guid.NewGuid(),
+            FirstName = "Ayoob",
+            LastName = "Aboosalih",
+            ContactNumber = "771512208",
+            assignedCompany = company1.Id
+        };
+
+
+        var user2 = new User()
+        {
+            Id = Guid.NewGuid(),
+            FirstName = "somone",
+            LastName = "Else",
+            ContactNumber = "210761296",
+            assignedCompany = company2.Id
+        };
+
+        var user3 = new User()
+        {
+            Id = Guid.NewGuid(),
+            FirstName = "Another",
+            LastName = "One",
+            ContactNumber = "210761296",
+            assignedCompany = company3.Id
+        };
+
+        Users.Add(user1.Id, user1);
+        Users.Add(user2.Id, user2);
+        Users.Add(user3.Id, user3);
+
+
+        // Adding Ticket
+
+        var ticket1 = new Ticket()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Addd git ignore",
+            Estimate = 2,
+            State = "In progress",
+            StartDate = DateTime.Today,
+            Enddate = DateTime.Now,
+            AssignedUsers = Users,
+            AssignedProject = Project1.Id
+        };
+
+
+        var ticket2 = new Ticket()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Delete File",
+            Estimate = 2,
+            State = "In progress",
+            StartDate = DateTime.Today,
+            Enddate = DateTime.Now,
+            AssignedUsers = Users,
+            AssignedProject = Project1.Id
+        };
+
+        var ticket3 = new Ticket()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Update UI",
+            Estimate = 2,
+            State = "In progress",
+            StartDate = DateTime.Today,
+            Enddate = DateTime.Now,
+            AssignedUsers = Users,
+            AssignedProject = Project1.Id
+        };
+
+
+        Tickets.Add(ticket1.Id, ticket1);
+        Tickets.Add(ticket2.Id, ticket2);
+        Tickets.Add(ticket3.Id, ticket3);
+
+
+
+    }
+
+}

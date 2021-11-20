@@ -75,6 +75,13 @@ using Jello.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\_Imports.razor"
+using Jello.Data;
+
+#line default
+#line hidden
+#nullable disable
     public partial class App : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -82,6 +89,40 @@ using Jello.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 14 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\App.razor"
+      
+    public static Dictionary<Guid, Company> Companies = new Dictionary<Guid, Company>();
+
+    protected override void OnInitialized()
+    {
+        var company1 = new Company()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Austasia"
+        };
+
+        var company2 = new Company()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Thingamagig"
+        };
+
+        var company3 = new Company()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Jello"
+        };
+
+        Companies.Add(company1.Id, company1);
+        Companies.Add(company2.Id, company2);
+        Companies.Add(company3.Id, company3);
+
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

@@ -1,0 +1,78 @@
+﻿@page "/companies"
+
+@inject CompanyService CompanyService
+
+<h3>List of companies</h3>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Read</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var company in App.Companies)
+            {
+                <tr>
+                    <td>
+                        @(company.Value.Name)
+                    </td>
+                    <td>
+                        <a href="/companies/details/@company.Key">Details</a>
+                    </td>
+                    <td>
+                        <a href="/companies/edit/@company.Key">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/companies/delete/@company.Key">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+        @*<tbody>
+            @foreach (var company in companies)
+            {
+                <tr>
+                    <td>
+                        @(company.Name)
+                    </td>
+                    <td>
+                        <a href="/companies/details/@company.Id">Details</a>
+                    </td>
+                    <td>
+                        <a href="/companies/edit/@company.Id">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/companies/delete/@company.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>*@
+    </table>
+</div>
+
+
+<p>
+    <a class="btn btn-primary" href="/companies/create">Create</a>
+</p>
+
+@code {
+
+    // Calling Service
+    @*private Company[] companies;
+
+    protected override async void OnInitialized()
+    {
+        companies = await CompanyService.GetCompanies();
+
+    }
+*@
+
+
+}
