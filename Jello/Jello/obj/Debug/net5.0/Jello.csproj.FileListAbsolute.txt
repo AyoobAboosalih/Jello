@@ -133,3 +133,12 @@ C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\net5.0\Razor\P
 C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\net5.0\Razor\Pages\Tickets\Edit.razor.g.cs
 C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\net5.0\Razor\Pages\Tickets\Index.razor.g.cs
 C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\obj\Debug\net5.0\Razor\Pages\Tickets\View.razor.g.cs
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\bin\Debug\net5.0\Microsoft.JSInterop.dll
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\bin\Debug\net5.0\MudBlazor.dll
+C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\bin\Debug\net5.0\System.IO.Pipelines.dll
