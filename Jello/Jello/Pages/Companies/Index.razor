@@ -1,78 +1,61 @@
 ﻿@page "/companies"
 
+@inject NavigationManager Navigator
+
 @inject CompanyService CompanyService
 
-<h3>List of companies</h3>
+<MudPaper Class="pa-10 ma-2" Elevation="3">
+    <MudText Class="ma-2" Typo="Typo.h3">Companies</MudText>
+    <MudDivider />
+    <MudGrid Class="pa-10 ma-2" Justify="Justify.FlexStart">
+        @foreach (var company in App.Companies)
+        {
+            var id = company.Key;
+            <MudItem xs="3">
+                <MudCard Class="pa-2" Elevation="25">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">@company.Value.Name</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudDivider />
+                    <MudCardContent>
+                        <MudText>This day everything happend.</MudText>
+                        <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <a href="/companies/details/@company.Key">
+                            <MudButton Class="pa-2 ma-2" Variant="Variant.Filled" Label="View">View</MudButton>
+                        </a>
+                        <a href="/companies/edit/@company.Key">
+                            <MudFab Class="pa-2 ma-2" Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Size="Size.Small" IconSize="Size.Small" />
+                        </a>
+                        <a href="/companies/delete/@company.Key">
+                            <MudFab Class="pa-2 ma-2" Link="/companies/delete/" Color="Color.Secondary" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" />
+                        </a>
 
-<div class="table-responsive">
-    <table class="table table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <th>Name</th>
-                <th>Read</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var company in App.Companies)
-            {
-                <tr>
-                    <td>
-                        @(company.Value.Name)
-                    </td>
-                    <td>
-                        <a href="/companies/details/@company.Key">Details</a>
-                    </td>
-                    <td>
-                        <a href="/companies/edit/@company.Key">Edit</a>
-                    </td>
-                    <td>
-                        <a href="/companies/delete/@company.Key">Delete</a>
-                    </td>
-                </tr>
-            }
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
 
-        </tbody>
-        @*<tbody>
-            @foreach (var company in companies)
-            {
-                <tr>
-                    <td>
-                        @(company.Name)
-                    </td>
-                    <td>
-                        <a href="/companies/details/@company.Id">Details</a>
-                    </td>
-                    <td>
-                        <a href="/companies/edit/@company.Id">Edit</a>
-                    </td>
-                    <td>
-                        <a href="/companies/delete/@company.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-
-        </tbody>*@
-    </table>
-</div>
-
-
-<p>
-    <a class="btn btn-primary" href="/companies/create">Create</a>
-</p>
+    </MudGrid>
+</MudPaper>
 
 @code {
 
-    // Calling Service
-    @*private Company[] companies;
+    private Company[] companies;
 
     protected override async void OnInitialized()
     {
         companies = await CompanyService.GetCompanies();
 
     }
-*@
+
+    private void navigateTo(string path)
+    {
+        Navigator.NavigateTo(path);
+    }
 
 
 }

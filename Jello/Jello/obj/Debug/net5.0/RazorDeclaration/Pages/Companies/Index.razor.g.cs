@@ -98,16 +98,29 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Index.razor"
+#line 45 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Index.razor"
        
 
-    // Calling Service
-    
+    private Company[] companies;
+
+    protected override async void OnInitialized()
+    {
+        companies = await CompanyService.GetCompanies();
+
+    }
+
+    private void navigateTo(string path)
+    {
+        Navigator.NavigateTo(path);
+    }
+
+
 
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private CompanyService CompanyService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigator { get; set; }
     }
 }
 #pragma warning restore 1591
