@@ -89,6 +89,13 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\_Imports.razor"
+using Jello.Models;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/companies/delete/{Id:guid}")]
     public partial class Delete : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -97,32 +104,6 @@ using MudBlazor;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 13 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Delete.razor"
-       
-    [Parameter]
-    public Guid Id { get; set; }
-    private Company company;
-
-    protected override void OnInitialized()
-    {
-        if (App.Companies.ContainsKey(Id))
-            company = App.Companies[Id];
-        else
-            Console.WriteLine("Item does not exist");
-
-    }
-
-    private void DeleteCompany()
-    {
-        App.Companies.Remove(Id);
-        Navigation.NavigateTo("/companies");
-    }
-
-
-#line default
-#line hidden
-#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigation { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace Jello.Data
 
         public DateTime Enddate { get; set; }
 
-        public Dictionary<Guid, User> AssignedUsers { get; set; }
+        public List<User> AssignedUsers { get; set; }
 
         [Required]
         public Guid AssignedProject { get; set; }

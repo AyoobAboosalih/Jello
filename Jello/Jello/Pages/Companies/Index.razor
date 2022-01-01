@@ -1,61 +1,71 @@
 ﻿@page "/companies"
 
+@using Jello.Data
+
 @inject NavigationManager Navigator
 
-@inject CompanyService CompanyService
+@inject ICompanyModel CompanyModel
+
 
 <MudPaper Class="pa-10 ma-2" Elevation="3">
-    <MudText Class="ma-2" Typo="Typo.h3">Companies</MudText>
+    <MudText Class="ma-2" Typo="Typo.h3">Companies
+        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Primary" Link="/companies/create">Add Company</MudButton>
+    </MudText>
+    
     <MudDivider />
-    <MudGrid Class="pa-10 ma-2" Justify="Justify.FlexStart">
-        @foreach (var company in App.Companies)
-        {
-            var id = company.Key;
-            <MudItem xs="3">
-                <MudCard Class="pa-2" Elevation="25">
-                    <MudCardHeader>
-                        <CardHeaderContent>
-                            <MudText Typo="Typo.h6">@company.Value.Name</MudText>
-                        </CardHeaderContent>
-                    </MudCardHeader>
-                    <MudDivider />
-                    <MudCardContent>
-                        <MudText>This day everything happend.</MudText>
-                        <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
-                    </MudCardContent>
-                    <MudCardActions>
-                        <a href="/companies/details/@company.Key">
-                            <MudButton Class="pa-2 ma-2" Variant="Variant.Filled" Label="View">View</MudButton>
-                        </a>
-                        <a href="/companies/edit/@company.Key">
-                            <MudFab Class="pa-2 ma-2" Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Size="Size.Small" IconSize="Size.Small" />
-                        </a>
-                        <a href="/companies/delete/@company.Key">
-                            <MudFab Class="pa-2 ma-2" Color="Color.Secondary" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" />
-                        </a>
+    @if (companies is null)
+    {
+        <p><em>Loading... !</em></p>
+    }
+    else
+    {
+        <MudGrid Class="pa-5 ma-2" Justify="Justify.FlexStart">
+            @foreach (var company in companies)
+            {
+                <MudItem xs="4">
+                    <MudCard Class="pa-2" Elevation="25">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6">@company.Name</MudText>
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudDivider />
+                        <MudCardActions>
+                            <a href="/companies/details/@company.Id">
+                                <MudButton Class="pa-2 ma-2" Variant="Variant.Filled" >View</MudButton>
+                            </a>
+                            <a href="/companies/edit/@company.Id">
+                                <MudFab Class="pa-2 ma-2" Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Size="Size.Small" IconSize="Size.Small" />
+                            </a>
+                            <a href="/companies/delete/@company.Id">
+                                <MudFab Class="pa-2 ma-2" Color="Color.Secondary" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" />
+                            </a>
 
-                    </MudCardActions>
-                </MudCard>
-            </MudItem>
-        }
+                        </MudCardActions>
+                    </MudCard>
+                </MudItem>
+            }
 
-    </MudGrid>
+        </MudGrid>
+    }
+
 </MudPaper>
 
 @code {
 
-    private Company[] companies;
+    List<Company> companies;
 
     protected override async void OnInitialized()
     {
-        companies = await CompanyService.GetCompanies();
-
+        GetCompanies();
     }
 
-    private void navigateTo(string path)
+    private List<Company> GetCompanies()
     {
-        Navigator.NavigateTo(path);
+        companies = CompanyModel.GetCompanies();
+        return companies;
     }
+
 
 
 }

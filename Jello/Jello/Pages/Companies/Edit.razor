@@ -22,7 +22,7 @@
     public Guid Id { get; set; }
     private Company company;
 
-    protected override void OnInitialized()
+   @* protected override void OnInitialized()
     {
         if (App.Companies.ContainsKey(Id))
             company = App.Companies[Id];
@@ -30,10 +30,10 @@
             Console.WriteLine("Item does not exist");
 
     }
-
+*@
     private void HandleValidSubmit()
     {
-        App.Companies[Id] = company;
+       // App.Companies[Id] = company;
         Console.WriteLine($"Edited todo with id: {Id}");
         Navigation.NavigateTo("/companies");
     }

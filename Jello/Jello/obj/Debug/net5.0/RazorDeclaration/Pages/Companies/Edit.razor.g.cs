@@ -89,6 +89,13 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\_Imports.razor"
+using Jello.Models;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/companies/edit/{Id:guid}")]
     public partial class Edit : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -105,18 +112,17 @@ using MudBlazor;
     public Guid Id { get; set; }
     private Company company;
 
-    protected override void OnInitialized()
-    {
-        if (App.Companies.ContainsKey(Id))
-            company = App.Companies[Id];
-        else
-            Console.WriteLine("Item does not exist");
+   
 
-    }
-
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 33 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Edit.razor"
+  
     private void HandleValidSubmit()
     {
-        App.Companies[Id] = company;
+       // App.Companies[Id] = company;
         Console.WriteLine($"Edited todo with id: {Id}");
         Navigation.NavigateTo("/companies");
     }

@@ -18,9 +18,9 @@ namespace Jello.Data
 
         public DateTime Enddate { get; set; }
 
-        public Dictionary<Guid, Ticket> AssignedTasks { get; set; }
+        public List<Ticket> AssignedTasks { get; set; }
 
-        public Dictionary<Guid, User> AssignedUsers { get; set; }
+        public List<User> AssignedUsers { get; set; }
 
         public Guid assignedCompany { get; set; }
     }

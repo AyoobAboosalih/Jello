@@ -89,6 +89,13 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\_Imports.razor"
+using Jello.Models;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/companies/create")]
     public partial class Create : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -98,23 +105,27 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 21 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Create.razor"
+#line 24 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Create.razor"
        
 
     private Company company = new Company();
 
-    private void HandleValidSubmit()
+
+    protected async void HandleValidSubmit()
     {
-        var companyGuid = Guid.NewGuid();
-        App.Companies.Add(companyGuid, company);
-        Navigation.NavigateTo("/companies");
+        CompanyModel.SaveCompany(company);
+        company = new Company();
+        snackBar.Add("Customer Saved.", Severity.Success);
     }
+
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigation { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private MudBlazor.ISnackbar snackBar { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ICompanyModel CompanyModel { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigator { get; set; }
     }
 }
 #pragma warning restore 1591

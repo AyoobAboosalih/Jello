@@ -1,19 +1,22 @@
 ﻿@page "/companies/create"
-@inject NavigationManager Navigation;
+@inject NavigationManager Navigator;
+@inject ICompanyModel CompanyModel
+@inject MudBlazor.ISnackbar snackBar
+
 
 <h3>Create a new Company</h3>
 
 <EditForm Model="company" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
-    <div class="form-group">
-        <label class="control-label">Name</label>
-        <ValidationMessage For="@(() => company.Name)" />
-        <InputText @bind-Value="@company.Name"></InputText>
-    </div>
-
-    
-
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <MudCard>
+        <MudCardContent>
+            <MudTextField Label="Name" HelperText="Max. 8 characters"
+                          @bind-Value="company.Name" For="@(() => company.Name)" />
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Register</MudButton>
+        </MudCardActions>
+    </MudCard>
 
 
 </EditForm>
@@ -22,11 +25,13 @@
 
     private Company company = new Company();
 
-    private void HandleValidSubmit()
+
+    protected async void HandleValidSubmit()
     {
-        var companyGuid = Guid.NewGuid();
-        App.Companies.Add(companyGuid, company);
-        Navigation.NavigateTo("/companies");
+        CompanyModel.SaveCompany(company);
+        company = new Company();
+        snackBar.Add("Customer Saved.", Severity.Success);
     }
+
 
 }

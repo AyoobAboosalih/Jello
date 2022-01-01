@@ -1,5 +1,6 @@
 using Jello.Areas.Identity;
 using Jello.Data;
+using Jello.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -37,11 +38,13 @@ namespace Jello
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
-            services.AddSingleton<CompanyService>();
             services.AddMudServices();
+            services.AddScoped<ICompanyModel, CompanyModel>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

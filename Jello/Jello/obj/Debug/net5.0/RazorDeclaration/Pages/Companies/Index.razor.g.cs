@@ -76,15 +76,22 @@ using Jello.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\_Imports.razor"
-using Jello.Data;
+#line 11 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\_Imports.razor"
+using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\_Imports.razor"
-using MudBlazor;
+#line 12 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\_Imports.razor"
+using Jello.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Index.razor"
+using Jello.Data;
 
 #line default
 #line hidden
@@ -98,28 +105,29 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 45 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Index.razor"
+#line 54 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Index.razor"
        
 
-    private Company[] companies;
+    List<Company> companies;
 
     protected override async void OnInitialized()
     {
-        companies = await CompanyService.GetCompanies();
-
+        GetCompanies();
     }
 
-    private void navigateTo(string path)
+    private List<Company> GetCompanies()
     {
-        Navigator.NavigateTo(path);
+        companies = CompanyModel.GetCompanies();
+        return companies;
     }
+
 
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CompanyService CompanyService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ICompanyModel CompanyModel { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigator { get; set; }
     }
 }

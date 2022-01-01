@@ -27,9 +27,9 @@ namespace Jello.Data
         [Required]
         public Guid assignedCompany { get; set; }
 
-        public Dictionary<Guid, Project> AssignedProjects { get; set; }
+        public List<Project> AssignedProjects { get; set; }
 
-        public Dictionary<Guid, Ticket> AssignedTasks { get; set; }
+        public List<Ticket> AssignedTasks { get; set; }
         
     }
 }

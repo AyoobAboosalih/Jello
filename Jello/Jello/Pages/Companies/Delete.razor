@@ -4,20 +4,20 @@
 <h3>Are you sure you want to delete this company?</h3>
 
 <h4>Title</h4>
-<p>@company.Name</p>
+@*<p>@company.Name</p>
 
 
 
-<button class="btn btn-primary" @onclick="DeleteCompany">Delete</button>
+<button class="btn btn-primary" @onclick="DeleteCompany">Delete</button>*@
 
 @code {
-    [Parameter]
+    @*[Parameter]
     public Guid Id { get; set; }
     private Company company;
 
     protected override void OnInitialized()
     {
-        if (App.Companies.ContainsKey(Id))
+        if (App.Companies.Contains(Id))
             company = App.Companies[Id];
         else
             Console.WriteLine("Item does not exist");
@@ -28,6 +28,6 @@
     {
         App.Companies.Remove(Id);
         Navigation.NavigateTo("/companies");
-    }
+    }*@
 
 }

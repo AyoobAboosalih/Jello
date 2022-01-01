@@ -12,5 +12,6 @@ namespace Jello.Data
             : base(options)
         {
         }
+        public DbSet<Company> Companies { get; set; }
     }
 }

@@ -12,11 +12,12 @@ namespace Jello.Data
         public Guid Id { get; set; }
 
         [Required]
+        [StringLength(35)]
         public String Name { get; set; }
 
-        public Dictionary<Guid,Project> AssignedProjects { get; set; }
+        public List<Project> AssignedProjects { get; set; }
 
-        public Dictionary<Guid, User> AssignedUsers { get; set; }
+        public List<User> AssignedUsers { get; set; }
 
     }
 }

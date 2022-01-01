@@ -12,10 +12,10 @@
 </CascadingAuthenticationState>
 
 @code{
-    public static Dictionary<Guid, Company> Companies = new Dictionary<Guid, Company>();
-    public static Dictionary<Guid, Project> Projects = new Dictionary<Guid, Project>();
-    public static Dictionary<Guid, User> Users = new Dictionary<Guid, User>();
-    public static Dictionary<Guid, Ticket> Tickets = new Dictionary<Guid, Ticket>();
+    public static List<Company> Companies = new List<Company>();
+    public static List<Project> Projects = new List<Project>();
+    public static List<User> Users = new List<User>();
+    public static List<Ticket> Tickets = new List<Ticket>();
 
     protected override void OnInitialized()
     {
@@ -38,9 +38,9 @@
             Name = "Jello"
         };
 
-        Companies.Add(company1.Id, company1);
-        Companies.Add(company2.Id, company2);
-        Companies.Add(company3.Id, company3);
+        Companies.Add(company1);
+        Companies.Add(company2);
+        Companies.Add(company3);
 
         // Adding Project
 
@@ -72,9 +72,9 @@
             assignedCompany = company3.Id
         };
 
-        Projects.Add(Project1.Id, Project1);
-        Projects.Add(Project2.Id, Project2);
-        Projects.Add(Project3.Id, Project3);
+        Projects.Add(Project1);
+        Projects.Add(Project2);
+        Projects.Add(Project3);
 
 
         // Adding User
@@ -107,9 +107,9 @@
             assignedCompany = company3.Id
         };
 
-        Users.Add(user1.Id, user1);
-        Users.Add(user2.Id, user2);
-        Users.Add(user3.Id, user3);
+        Users.Add(user1);
+        Users.Add(user2);
+        Users.Add(user3);
 
 
         // Adding Ticket
@@ -152,9 +152,9 @@
         };
 
 
-        Tickets.Add(ticket1.Id, ticket1);
-        Tickets.Add(ticket2.Id, ticket2);
-        Tickets.Add(ticket3.Id, ticket3);
+        Tickets.Add(ticket1);
+        Tickets.Add( ticket2);
+        Tickets.Add(ticket3);
 
 
 

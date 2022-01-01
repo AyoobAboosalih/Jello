@@ -89,6 +89,13 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\_Imports.razor"
+using Jello.Models;
+
+#line default
+#line hidden
+#nullable disable
     public partial class App : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -99,10 +106,10 @@ using MudBlazor;
 #nullable restore
 #line 14 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\App.razor"
       
-    public static Dictionary<Guid, Company> Companies = new Dictionary<Guid, Company>();
-    public static Dictionary<Guid, Project> Projects = new Dictionary<Guid, Project>();
-    public static Dictionary<Guid, User> Users = new Dictionary<Guid, User>();
-    public static Dictionary<Guid, Ticket> Tickets = new Dictionary<Guid, Ticket>();
+    public static List<Company> Companies = new List<Company>();
+    public static List<Project> Projects = new List<Project>();
+    public static List<User> Users = new List<User>();
+    public static List<Ticket> Tickets = new List<Ticket>();
 
     protected override void OnInitialized()
     {
@@ -125,9 +132,9 @@ using MudBlazor;
             Name = "Jello"
         };
 
-        Companies.Add(company1.Id, company1);
-        Companies.Add(company2.Id, company2);
-        Companies.Add(company3.Id, company3);
+        Companies.Add(company1);
+        Companies.Add(company2);
+        Companies.Add(company3);
 
         // Adding Project
 
@@ -159,9 +166,9 @@ using MudBlazor;
             assignedCompany = company3.Id
         };
 
-        Projects.Add(Project1.Id, Project1);
-        Projects.Add(Project2.Id, Project2);
-        Projects.Add(Project3.Id, Project3);
+        Projects.Add(Project1);
+        Projects.Add(Project2);
+        Projects.Add(Project3);
 
 
         // Adding User
@@ -194,9 +201,9 @@ using MudBlazor;
             assignedCompany = company3.Id
         };
 
-        Users.Add(user1.Id, user1);
-        Users.Add(user2.Id, user2);
-        Users.Add(user3.Id, user3);
+        Users.Add(user1);
+        Users.Add(user2);
+        Users.Add(user3);
 
 
         // Adding Ticket
@@ -239,9 +246,9 @@ using MudBlazor;
         };
 
 
-        Tickets.Add(ticket1.Id, ticket1);
-        Tickets.Add(ticket2.Id, ticket2);
-        Tickets.Add(ticket3.Id, ticket3);
+        Tickets.Add(ticket1);
+        Tickets.Add( ticket2);
+        Tickets.Add(ticket3);
 
 
 
