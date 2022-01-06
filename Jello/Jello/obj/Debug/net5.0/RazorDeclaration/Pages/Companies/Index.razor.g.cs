@@ -108,17 +108,16 @@ using Jello.Data;
 #line 54 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Index.razor"
        
 
-    List<Company> companies;
+    private List<Company> companies;
 
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        GetCompanies();
+        companies = await Task.Run(() => CompanyModel.GetCompanies());
     }
 
-    private List<Company> GetCompanies()
+    protected async void DeleteEmployee(Company company)
     {
-        companies = CompanyModel.GetCompanies();
-        return companies;
+        await CompanyModel.DeleteCompany(company.Id);
     }
 
 
@@ -127,7 +126,7 @@ using Jello.Data;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ICompanyModel CompanyModel { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CompanyModel CompanyModel { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigator { get; set; }
     }
 }

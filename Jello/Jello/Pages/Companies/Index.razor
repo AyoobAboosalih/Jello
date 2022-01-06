@@ -4,7 +4,7 @@
 
 @inject NavigationManager Navigator
 
-@inject ICompanyModel CompanyModel
+@inject CompanyModel CompanyModel
 
 
 <MudPaper Class="pa-10 ma-2" Elevation="3">
@@ -38,7 +38,7 @@
                                 <MudFab Class="pa-2 ma-2" Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Size="Size.Small" IconSize="Size.Small" />
                             </a>
                             <a href="/companies/delete/@company.Id">
-                                <MudFab Class="pa-2 ma-2" Color="Color.Secondary" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" />
+                                <MudFab Class="pa-2 ma-2"  Color="Color.Secondary" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" />
                             </a>
 
                         </MudCardActions>
@@ -53,17 +53,16 @@
 
 @code {
 
-    List<Company> companies;
+    private List<Company> companies;
 
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        GetCompanies();
+        companies = await Task.Run(() => CompanyModel.GetCompanies());
     }
 
-    private List<Company> GetCompanies()
+    protected async void DeleteEmployee(Company company)
     {
-        companies = CompanyModel.GetCompanies();
-        return companies;
+        await CompanyModel.DeleteCompany(company.Id);
     }
 
 

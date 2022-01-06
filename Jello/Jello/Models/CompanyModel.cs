@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Jello.Models
 {
-    public class CompanyModel : ICompanyModel
+    public class CompanyModel
     {
 
         private readonly ApplicationDbContext _dbContext;
@@ -15,35 +15,38 @@ namespace Jello.Models
         {
             _dbContext = context;
         }
-        public void DeleteCompany(Guid id)
+        public async Task<bool> DeleteCompany(Guid id)
         {
             var company = _dbContext.Companies.FirstOrDefault(x => x.Id == id);
             if (company != null)
             {
                 _dbContext.Companies.Remove(company);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
+                return true;
             }
+            return false;
         }
 
-        public List<Company> GetCompanies()
+        public async Task<List<Company>> GetCompanies()
         {
-            return _dbContext.Companies.ToList();
+            return await _dbContext.Companies.ToListAsync();
         }
 
-        public Company GetCompanyById(Guid id)
+        public async Task<Company>  GetCompanyById(Guid id)
         {
-            var company = _dbContext.Companies.SingleOrDefault(x => x.Id == id);
+            var company = await _dbContext.Companies.FirstOrDefaultAsync(x => x.Id == id);
             return company;
         }
 
-        public void SaveCompany(Company company)
+        public async Task<bool> SaveCompany(Company company)
         {
             if (company.Id.Equals(0)) {
                 company.Id = new Guid();
-                _dbContext.Companies.Add(company);
+                await _dbContext.Companies.AddAsync(company);
             } 
             else _dbContext.Companies.Update(company);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
+            return true;
 
         }
     }

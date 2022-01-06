@@ -105,18 +105,32 @@ using Jello.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 24 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Create.razor"
+#line 32 "C:\Users\Admin\Desktop\IIT\L6\EAD\CW2\Jello\Jello\Jello\Pages\Companies\Create.razor"
        
 
     private Company company = new Company();
+    MudListItem selectedProjectItem;
+    private Project selectedProjectValue;
+    private List<Project> projects;
+
+    protected override async Task OnInitializedAsync()
+    {
+        projects = await Task.Run(() => projectModel.GetProjects());
+    }
 
 
     protected async void HandleValidSubmit()
     {
-        CompanyModel.SaveCompany(company);
-        company = new Company();
-        snackBar.Add("Customer Saved.", Severity.Success);
+        await companyModel.SaveCompany(company);
+        snackBar.Add("Company Saved.", Severity.Success);
+        Navigator.NavigateTo("/companies");
     }
+
+    void AddProject()
+    {
+        company.AssignedProjects.Add(selectedProjectValue);
+    }
+
 
 
 
@@ -124,7 +138,8 @@ using Jello.Models;
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private MudBlazor.ISnackbar snackBar { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ICompanyModel CompanyModel { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CompanyModel companyModel { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ProjectModel projectModel { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigator { get; set; }
     }
 }

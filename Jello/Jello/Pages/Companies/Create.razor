@@ -1,6 +1,7 @@
 ﻿@page "/companies/create"
 @inject NavigationManager Navigator;
-@inject ICompanyModel CompanyModel
+@inject ProjectModel projectModel
+@inject CompanyModel companyModel
 @inject MudBlazor.ISnackbar snackBar
 
 
@@ -12,26 +13,47 @@
         <MudCardContent>
             <MudTextField Label="Name" HelperText="Max. 8 characters"
                           @bind-Value="company.Name" For="@(() => company.Name)" />
+
+            <MudList Clickable="true" @bind-SelectedItem="selectedProjectItem" @bind-SelectedValue="selectedProjectValue">
+                @foreach (var project in projects)
+                {
+                    <MudListItem Text=@project.Name Value=@project />
+                }
+            </MudList>
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="@AddProject">Add Project</MudButton>
         </MudCardContent>
         <MudCardActions>
-            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Register</MudButton>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Create</MudButton>
         </MudCardActions>
     </MudCard>
-
-
 </EditForm>
+
 
 @code {
 
     private Company company = new Company();
+    MudListItem selectedProjectItem;
+    private Project selectedProjectValue;
+    private List<Project> projects;
+
+    protected override async Task OnInitializedAsync()
+    {
+        projects = await Task.Run(() => projectModel.GetProjects());
+    }
 
 
     protected async void HandleValidSubmit()
     {
-        CompanyModel.SaveCompany(company);
-        company = new Company();
-        snackBar.Add("Customer Saved.", Severity.Success);
+        await companyModel.SaveCompany(company);
+        snackBar.Add("Company Saved.", Severity.Success);
+        Navigator.NavigateTo("/companies");
     }
+
+    void AddProject()
+    {
+        company.AssignedProjects.Add(selectedProjectValue);
+    }
+
 
 
 }
