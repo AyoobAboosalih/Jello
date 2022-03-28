@@ -1,2 +1,2 @@
 # Jello
-A product managements app built on Blazor .Net
+A product management app built on Blazor .Net
